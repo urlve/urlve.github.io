@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>瞎几把乱写 on urlve</title>
+    <link>https://urlve.github.io/categories/%E7%9E%8E%E5%87%A0%E6%8A%8A%E4%B9%B1%E5%86%99/</link>
+    <description>Recent content in 瞎几把乱写 on urlve</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Aug 2018 10:51:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://urlve.github.io/categories/%E7%9E%8E%E5%87%A0%E6%8A%8A%E4%B9%B1%E5%86%99/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First</title>
+      <link>https://urlve.github.io/post/first/</link>
+      <pubDate>Thu, 16 Aug 2018 10:51:21 +0800</pubDate>
+      
+      <guid>https://urlve.github.io/post/first/</guid>
+      <description>1995 题目一-题目大意 给出一个算式，根据给出的数字求这个算式中的未知数字。
+考察算法 暴力枚举。
+算法一 思路： 暴力枚举除数和被除数，算出其它数字，再判断是否满足算式的条件。
+时间复杂度分析： $O(M * N)$，$M \leq 100,N \leq 10000$。
+期望得分： 100分。
+参考代码： #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;algorithm&amp;gt; using namespace std; int main() { for (int i = 10;i &amp;lt;= 99;i++) { for (int j = 1000;j &amp;lt;= 9999;j++) { int k = i * 8; if (k &amp;gt;= 100) continue; int x = j / 100; int y = x - k; if (y &amp;lt; 1 || y &amp;gt; 9) continue; int m = y * 100 + j % 100; int n = i * 9; if (n &amp;lt; 100) continue; if (m - n !</description>
+    </item>
+    
+  </channel>
+</rss>

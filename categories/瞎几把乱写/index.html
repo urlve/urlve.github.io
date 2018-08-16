@@ -8,7 +8,7 @@
 
 <meta name="description" content="">
 
-<title>Test</title>
+<title>瞎几把乱写</title>
 <meta name="generator" content="Hugo 0.46" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/pojoaque.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
@@ -53,46 +53,20 @@
 </div>
 <div class="col-md-9 content">
 
-<h1>Test</h1>
-<h4>Published 08-16-2018 11:53:23</h4>
 
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="kendo5731"></a>
-<script>!function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-    if (!d.getElementById(id)) {
-        js = d.createElement(s);
-        js.id = id;
-        js.src = p + '://platform.twitter.com/widgets.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }
-}(document, 'script', 'twitter-wjs');</script>
-
-<div class="fb-share-button" data-href="https://urlve.github.io/post/test/" data-layout="button"></div>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en-US/sdk.js#xfbml=1&version=v2.5";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<article>
-    <p>sfafds
-sdfsdfsd
-sdfdsfsd
-sdfsf</p>
-
-<pre><code class="language-cpp">#include &lt;stdio.h&gt;
-
-int main()
-{
-	return 0;
-}
-</code></pre>
-
-</article>
-
+<div class="articles-list">
+    
+    <article>
+        <h3><a href="https://urlve.github.io/post/first/">First</a> - 2018-08-16 10:51:21</h3>
+        1995 题目一-题目大意 给出一个算式，根据给出的数字求这个算式中的未知数字。
+考察算法 暴力枚举。
+算法一 思路： 暴力枚举除数和被除数，算出其它数字，再判断是否满足算式的条件。
+时间复杂度分析： $O(M * N)$，$M \leq 100,N \leq 10000$。
+期望得分： 100分。
+参考代码： #include &lt;stdio.h&gt; #include &lt;string.h&gt; #include &lt;algorithm&gt; using namespace std; int main() { for (int i = 10;i &lt;= 99;i++) { for (int j = 1000;j &lt;= 9999;j++) { int k = i * 8; if (k &gt;= 100) continue; int x = j / 100; int y = x - k; if (y &lt; 1 || y &gt; 9) continue; int m = y * 100 + j % 100; int n = i * 9; if (n &lt; 100) continue; if (m - n !
+    </article>
+    
+</div>
 
 
 </div>
