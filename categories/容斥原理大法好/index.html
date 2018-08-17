@@ -62,7 +62,20 @@
     
     <article>
         <h3><a href="https://urlve.github.io/post/gg/">Gg</a> - 2018-08-17 11:11:44</h3>
-        
+        1997
+题目一-题目大意
+给出一个n*m的棋盘，计算其中的正方形和长方形（不包含正方形）有多少个。
+考察算法
+数学。
+算法一
+思路：
+枚举长方形的边长，暴力计算，累加。
+时间复杂度分析：
+O(n*m)
+期望得分：
+100分。
+参考代码：
+#include &lt;stdio.h&gt; #include &lt;string.h&gt; #include &lt;algorithm&gt; using namespace std; int main() { int n,m; scanf(&quot;%d%d&quot;,&amp;n,&amp;m); int sq = 0,rec = 0; for (int i = 1;i &lt;= max(n,m);i++) { for (int j = 1;j &lt;= max(n,m);j++) { if (i == j) { int x = n - i + 1; int y = m - j + 1; if (x &lt;= 0 || y &lt;= 0) continue; sq += x * y; } else { int x = n - i + 1; int y = m - j + 1; if (x &lt;= 0 || y &lt;= 0) continue; rec += x * y; } } } printf(&quot;%d %d\n&quot;,sq,rec); return 0; }  算法二
     </article>
     
 </div>

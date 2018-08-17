@@ -82,7 +82,520 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <article>
-    
+    <p>1997</p>
+
+<p>题目一-题目大意</p>
+
+<p>给出一个n*m的棋盘，计算其中的正方形和长方形（不包含正方形）有多少个。</p>
+
+<p>考察算法</p>
+
+<p>数学。</p>
+
+<p>算法一</p>
+
+<p>思路：</p>
+
+<p>枚举长方形的边长，暴力计算，累加。</p>
+
+<p>时间复杂度分析：</p>
+
+<p>O(n*m)</p>
+
+<p>期望得分：</p>
+
+<p>100分。</p>
+
+<p>参考代码：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main()
+{
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    int sq = 0,rec = 0;
+    for (int i = 1;i &lt;= max(n,m);i++)
+    {
+        for (int j = 1;j &lt;= max(n,m);j++)
+        {
+            if (i == j)
+            {
+                int x = n - i + 1;
+                int y = m - j + 1;
+                if (x &lt;= 0 || y &lt;= 0) continue;
+                sq += x * y;
+            }
+            else
+            {
+                int x = n - i + 1;
+                int y = m - j + 1;
+                if (x &lt;= 0 || y &lt;= 0) continue;
+                rec += x * y;
+            }
+        }
+    }
+    printf(&quot;%d %d\n&quot;,sq,rec);
+    return 0;
+}
+</code></pre>
+
+<p>算法二</p>
+
+<p>思路：</p>
+
+<p>长方形的个数（包括正方形）可以如下计算：</p>
+
+<p>(1+2+3+&hellip;+n) * (1+2+3+&hellip;+m) = n * m * (m+1) * (n+1) / 4 。</p>
+
+<p>然后再减去正方形的个数就是严格的长方形的个数。</p>
+
+<p>时间复杂度分析：</p>
+
+<p>O(min(m,n))。</p>
+
+<p>期望得分：</p>
+
+<p>100分。</p>
+
+<p>参考代码：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main()
+{
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    int sumc = n * m * (n + 1) * (m + 1) / 4;
+    int sumz = 0;
+    for (int i = 1;i &lt;= min(n,m);i++)
+    {
+        int x = n - i + 1,y = m - i + 1;
+        sumz += x * y;
+    }
+    sumc -= sumz;
+    printf(&quot;%d %d\n&quot;,sumz,sumc);
+    return 0;
+}
+</code></pre>
+
+<p>题目二-题目大意</p>
+
+<p>用1到9的9个数字摆成一个三角形，这个三角形满足一定的条件，问有多少种摆法，若有的话，输出摆法的个数，并且输出字典序最小的方案。</p>
+
+<p>考察算法</p>
+
+<p>搜索，暴力枚举。</p>
+
+<p>算法一</p>
+
+<p>思路：</p>
+
+<p>直接搜索9个数字的全排列，输出最后一个合法的方案。（此处假设不会求字典序最小）</p>
+
+<p>时间复杂度分析：</p>
+
+<p>O(N!),N = 9。</p>
+
+<p>期望得分：</p>
+
+<p>25分。</p>
+
+<p>参考代码：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+bool used[10];
+int a[10];
+int ans[10],cnt;
+int p;
+
+int mp(char c)
+{
+    return c - 'a' + 1;
+}
+
+bool check(void)
+{
+    bool f1 = 0,f2 = 0,f3 = 0;
+    if (a[mp('a')] &lt; a[mp('f')] &amp;&amp; a[mp('f')] &lt; a[mp('i')]) f1 = 1;
+    if (a[mp('b')] &lt; a[mp('d')] &amp;&amp; a[mp('g')] &lt; a[mp('h')] &amp;&amp; a[mp('c')] &lt; a[mp('e')]) f2 = 1;
+    if (a[mp('a')] + a[mp('b')] + a[mp('d')] + a[mp('f')] == p)
+    {
+        if (a[mp('f')] + a[mp('g')] + a[mp('h')] + a[mp('i')] == p)
+        {
+            if (a[mp('i')] + a[mp('e')] + a[mp('c')] + a[mp('a')] == p)
+            {
+                f3 = 1;
+            }
+        }
+    }
+    return f1 &amp;&amp; f2 &amp;&amp; f3;
+}
+
+void dfs(int u,int pos)
+{
+    a[pos] = u;
+    if (pos == 9)
+    {
+        if(check())
+        {
+            cnt++;
+            for (int i = 1;i &lt;= 9;i++) ans[i] = a[i];
+        }
+    }
+    for (int i = 1;i &lt;= 9;i++)
+    {
+        if (!used[i])
+        {
+            used[i] = 1;
+            dfs(i,pos+1);
+            used[i] = 0;
+        }
+    }
+}
+
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;p);
+    for (int i = 1;i &lt;= 9;i++) ans[i] = 999;
+    for (int i = 1;i &lt;= 9;i++)
+    {
+        used[i] = 1;
+        dfs(i,1);
+        used[i] = 0;
+    }
+    if (!cnt) puts(&quot;NO&quot;);
+    else
+    {
+        printf(&quot;%d\n&quot;,cnt);
+        printf(&quot;%d\n%d %d\n%d %d\n%d %d %d %d\n&quot;,ans[1],ans[2],ans[3],ans[4],ans[5],ans[6],ans[7],ans[8],ans[9]);
+    }
+
+    return 0;
+}
+</code></pre>
+
+<p>算法二</p>
+
+<p>思路：</p>
+
+<p>直接搜索9个数字的全排列，每次枚举到合理的方案后，跟当前的答案比较字典序大小，然后更新答案。</p>
+
+<p>时间复杂度分析：</p>
+
+<p>O(N!),N = 9。</p>
+
+<p>期望得分：</p>
+
+<p>100分。</p>
+
+<p>参考代码：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+bool used[10];
+int a[10];
+int ans[10],cnt;
+int p;
+
+int mp(char c)
+{
+    return c - 'a' + 1;
+}
+
+bool check(void)
+{
+    bool f1 = 0,f2 = 0,f3 = 0;
+    if (a[mp('a')] &lt; a[mp('f')] &amp;&amp; a[mp('f')] &lt; a[mp('i')]) f1 = 1;
+    if (a[mp('b')] &lt; a[mp('d')] &amp;&amp; a[mp('g')] &lt; a[mp('h')] &amp;&amp; a[mp('c')] &lt; a[mp('e')]) f2 = 1;
+    if (a[mp('a')] + a[mp('b')] + a[mp('d')] + a[mp('f')] == p)
+    {
+        if (a[mp('f')] + a[mp('g')] + a[mp('h')] + a[mp('i')] == p)
+        {
+            if (a[mp('i')] + a[mp('e')] + a[mp('c')] + a[mp('a')] == p)
+            {
+                f3 = 1;
+            }
+        }
+    }
+    return f1 &amp;&amp; f2 &amp;&amp; f3;
+}
+
+void lessthan(void)
+{
+    bool f = 0;
+    for (int i = 1;i &lt;= 9;i++)
+    {
+        if (a[i] &lt; ans[i])
+        {
+            f = 1;
+            break;
+        }
+        else if (a[i] &gt; ans[i])
+        {
+            break;
+        }
+    }
+    if (f)
+    {
+        for (int i = 1;i &lt;= 9;i++)
+        {
+            ans[i] = a[i];
+        }
+    }
+}
+
+void dfs(int u,int pos)
+{
+    a[pos] = u;
+    if (pos == 9)
+    {
+        if(check())
+        {
+            cnt++;
+            lessthan();
+        }
+    }
+    for (int i = 1;i &lt;= 9;i++)
+    {
+        if (!used[i])
+        {
+            used[i] = 1;
+            dfs(i,pos+1);
+            used[i] = 0;
+        }
+    }
+}
+
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;p);
+    for (int i = 1;i &lt;= 9;i++) ans[i] = 999;
+    for (int i = 1;i &lt;= 9;i++)
+    {
+        used[i] = 1;
+        dfs(i,1);
+        used[i] = 0;
+    }
+    if (!cnt) puts(&quot;NO&quot;);
+    else
+    {
+        printf(&quot;%d\n&quot;,cnt);
+        printf(&quot;%d\n%d %d\n%d %d\n%d %d %d %d\n&quot;,ans[1],ans[2],ans[3],ans[4],ans[5],ans[6],ans[7],ans[8],ans[9]);
+    }
+
+    return 0;
+}
+</code></pre>
+
+<p>题目三-题目大意</p>
+
+<p>有一个n*m的棋盘，从(1,1)开始，每次可以向东或者向北走一个格子，问在没有障碍或者有障碍的情况下，走到(n,m)的方法有多少种，如果方法数太多，则输出最后20个数字。</p>
+
+<p>考察算法</p>
+
+<p>递推，动态规划，高精度。</p>
+
+<p>算法一</p>
+
+<p>思路：</p>
+
+<p>动态规划或者递推：</p>
+
+<p>dp[1][1] = 1,dp[i][j] = dp[i-1][j] + dp[i][j-1].</p>
+
+<p>直接输出结果。（假设不会高精度）</p>
+
+<p>时间复杂度分析：</p>
+
+<p>O(n*m)。</p>
+
+<p>期望得分：</p>
+
+<p>66分。</p>
+
+<p>参考代码：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 55;
+long long dp[N][N];
+int main()
+{
+    int n,m;
+    int x1,y1,x2,y2;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    scanf(&quot;%d%d&quot;,&amp;x1,&amp;y1);
+    scanf(&quot;%d%d&quot;,&amp;x2,&amp;y2);
+    dp[1][1] = 1;
+    if (x1 + x2 + y1 + y2 == 0)
+    {
+        for (int i = 1;i &lt;= n;i++)
+        {
+            for (int j = 1;j &lt;= m;j++)
+            {
+                if (i == 1 &amp;&amp; j == 1) continue;
+                if (i - 1 &gt;= 1) dp[i][j] += dp[i-1][j];
+                if (j - 1 &gt;= 1) dp[i][j] += dp[i][j-1];
+            }
+        }
+        printf(&quot;%lld\n&quot;,dp[n][m]);
+    }
+    else
+    {
+        for (int i = 1;i &lt;= n;i++)
+        {
+            for (int j = 1;j &lt;= m;j++)
+            {
+                bool f1 = 0,f2 = 0;
+                if (i == 1 &amp;&amp; j == 1) continue;
+                if (i &gt;= x1 &amp;&amp; j &gt;= y1 &amp;&amp; i &lt;= x2 &amp;&amp; j &lt;= y2) continue;
+                if (i - 1 &gt;= x1 &amp;&amp; j &gt;= y1 &amp;&amp; i - 1 &lt;= x2 &amp;&amp; j &lt;= y2)
+                {
+                    f1 = 1;
+                }
+                if (i &gt;= x1 &amp;&amp; j - 1 &gt;= y1 &amp;&amp; i &lt;= x2 &amp;&amp; j - 1 &lt;= y2)
+                {
+                    f2 = 1;
+                }
+                if (!f1) dp[i][j] += dp[i-1][j];
+                if (!f2) dp[i][j] += dp[i][j-1];
+            }
+        }
+        printf(&quot;%lld\n&quot;,dp[n][m]);
+    }
+    return 0;
+}
+</code></pre>
+
+<p>算法二</p>
+
+<p>思路：</p>
+
+<p>动态规划或者递推：</p>
+
+<p>用一个结构体来保存后20位：</p>
+
+<pre><code>struct node
+{
+    long long x,y;
+} dp[x][y];
+</code></pre>
+
+<p>x保存后10位，y保存前10位。</p>
+
+<p>所以递推方程变成：</p>
+
+<p>s = dp[i-1][j].x + dp[i][j-1].x</p>
+
+<p>dp[i][j].x = (s)  mod  (1e10)</p>
+
+<p>dp[i][j].y = (dp[i-1][j].y + dp[i][j-1].y + s/(1e10) ) mod (1e10)</p>
+
+<p>最后判断前10位是否位0输出即可，注意dp数组的初始化，跟算法一不同。</p>
+
+<p>时间复杂度分析：</p>
+
+<p>O(n*m)。</p>
+
+<p>期望得分：</p>
+
+<p>100分。</p>
+
+<p>参考代码：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const long long mod = 10000000000;
+const int N = 55;
+struct node
+{
+    long long x,y;
+} dp[N][N];
+
+int main()
+{
+    int n,m;
+    int x1,y1,x2,y2;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    scanf(&quot;%d%d&quot;,&amp;x1,&amp;y1);
+    scanf(&quot;%d%d&quot;,&amp;x2,&amp;y2);
+    dp[1][1].x = 1;
+    if (x1 + x2 + y1 + y2 == 0)
+    {
+        for (int i = 1;i &lt;= n;i++)
+        {
+            for (int j = 1;j &lt;= m;j++)
+            {
+                if (i == 1 &amp;&amp; j == 1) continue;
+                if (i - 1 &gt;= 1)
+                {
+                    long long s = dp[i][j].x + dp[i-1][j].x;
+                    dp[i][j].x = s % mod;
+                    dp[i][j].y = (dp[i][j].y + dp[i-1][j].y + s / mod) % mod;
+                }
+                if (j - 1 &gt;= 1)
+                {
+                    long long s = dp[i][j].x + dp[i][j-1].x;
+                    dp[i][j].x = s % mod;
+                    dp[i][j].y = (dp[i][j].y + dp[i][j-1].y + s / mod) % mod;
+                }
+            }
+        }
+    }
+    else
+    {
+        for (int i = 1;i &lt;= n;i++)
+        {
+            for (int j = 1;j &lt;= m;j++)
+            {
+                bool f1 = 0,f2 = 0;
+                if (i == 1 &amp;&amp; j == 1) continue;
+                if (i &gt;= x1 &amp;&amp; j &gt;= y1 &amp;&amp; i &lt;= x2 &amp;&amp; j &lt;= y2) continue;
+                if (i - 1 &gt;= x1 &amp;&amp; j &gt;= y1 &amp;&amp; i - 1 &lt;= x2 &amp;&amp; j &lt;= y2)
+                {
+                    f1 = 1;
+                }
+                if (i &gt;= x1 &amp;&amp; j - 1 &gt;= y1 &amp;&amp; i &lt;= x2 &amp;&amp; j - 1 &lt;= y2)
+                {
+                    f2 = 1;
+                }
+                if (!f1 &amp;&amp; i - 1 &gt;= 1)
+                {
+                    long long s = dp[i][j].x + dp[i-1][j].x;
+                    dp[i][j].x = s % mod;
+                    dp[i][j].y = (dp[i][j].y + dp[i-1][j].y + s / mod) % mod;
+                }
+                if (!f2 &amp;&amp; j - 1 &gt;= 1)
+                {
+                    long long s = dp[i][j].x + dp[i][j-1].x;
+                    dp[i][j].x = s % mod;
+                    dp[i][j].y = (dp[i][j].y + dp[i][j-1].y + s / mod) % mod;
+                }
+            }
+        }
+    }
+    if (dp[n][m].y != 0) printf(&quot;%lld&quot;,dp[n][m].y);
+    printf(&quot;%lld\n&quot;,dp[n][m].x);
+    return 0;
+}
+</code></pre>
+
 </article>
 
 
