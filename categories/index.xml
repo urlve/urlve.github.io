@@ -10,5 +10,14 @@
 	<atom:link href="https://urlve.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>生成函数</title>
+      <link>https://urlve.github.io/categories/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 17 Aug 2018 20:18:25 +0800</pubDate>
+      
+      <guid>https://urlve.github.io/categories/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

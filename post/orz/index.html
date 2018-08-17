@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Posts :: urlve</title>
+    <title>Orz :: urlve</title>
 
     
     <link href="/css/nucleus.css?1534509561" rel="stylesheet">
@@ -32,7 +32,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/post/">
+  <body class="" data-url="/post/orz/">
     <nav id="sidebar" class="">
 
 
@@ -92,7 +92,7 @@
     
     <li data-nav-id="/post/" title="Posts" class="dd-item 
         parent
-        active
+        
         
         ">
       <a href="/post/">
@@ -115,7 +115,7 @@
  
   
     
-      <li data-nav-id="/post/orz/" title="Orz" class="dd-item ">
+      <li data-nav-id="/post/orz/" title="Orz" class="dd-item active">
         <a href="/post/orz/">
         Orz
         
@@ -178,7 +178,13 @@
             
           
           
-            <a href='/'>urlve</a> > Posts
+            
+            
+          
+          
+            <a href='/'>urlve</a> > <a href='/post/'>Posts</a> > Orz
+          
+         
           
          
           
@@ -188,7 +194,63 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li><a href="#1996">1996</a>
+<ul>
+<li><a href="#题目一-题目大意">题目一-题目大意</a></li>
+<li><a href="#考察算法">考察算法</a></li>
+<li><a href="#算法一">算法一</a>
+<ul>
+<li><a href="#思路">思路：</a></li>
+<li><a href="#时间复杂度分析">时间复杂度分析：</a></li>
+<li><a href="#期望得分">期望得分：</a></li>
+<li><a href="#参考代码">参考代码：</a></li>
+</ul></li>
+<li><a href="#算法二">算法二</a>
+<ul>
+<li><a href="#思路-1">思路：</a></li>
+<li><a href="#时间复杂度分析-1">时间复杂度分析：</a></li>
+<li><a href="#期望得分-1">期望得分：</a></li>
+<li><a href="#参考代码-1">参考代码：</a></li>
+</ul></li>
+<li><a href="#题目二-题目大意">题目二-题目大意</a></li>
+<li><a href="#考察算法-1">考察算法</a></li>
+<li><a href="#算法一-1">算法一</a>
+<ul>
+<li><a href="#思路-2">思路：</a></li>
+<li><a href="#时间复杂度分析-2">时间复杂度分析：</a></li>
+<li><a href="#期望得分-2">期望得分：</a></li>
+<li><a href="#参考代码-2">参考代码：</a></li>
+</ul></li>
+<li><a href="#题目三-题目大意">题目三-题目大意</a></li>
+<li><a href="#考察算法-2">考察算法</a></li>
+<li><a href="#算法一-2">算法一</a>
+<ul>
+<li><a href="#思路-3">思路：</a></li>
+<li><a href="#时间复杂度分析-3">时间复杂度分析：</a></li>
+<li><a href="#期望得分-3">期望得分：</a></li>
+<li><a href="#参考代码-3">参考代码：</a></li>
+</ul></li>
+<li><a href="#算法二-1">算法二</a>
+<ul>
+<li><a href="#思路-4">思路：</a></li>
+<li><a href="#时间复杂度分析-4">时间复杂度分析：</a></li>
+<li><a href="#期望得分-4">期望得分：</a></li>
+<li><a href="#参考代码-4">参考代码：</a></li>
+</ul></li>
+<li><a href="#题目四-题目大意">题目四-题目大意</a></li>
+<li><a href="#考察算法-3">考察算法</a></li>
+<li><a href="#算法一-3">算法一</a>
+<ul>
+<li><a href="#思路-5">思路：</a></li>
+<li><a href="#时间复杂度分析-5">时间复杂度分析：</a></li>
+<li><a href="#期望得分-5">期望得分：</a></li>
+<li><a href="#参考代码-5">参考代码：</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -200,7 +262,7 @@
         
         <div id="body-inner">
           
-            <h1>Posts</h1>
+            <h1>Orz</h1>
           
 
         
@@ -208,9 +270,472 @@
 
 
 
+<h1 id="1996">1996</h1>
+
+<h2 id="题目一-题目大意">题目一-题目大意</h2>
+
+<p>模拟竖式乘法的过程并输出。</p>
+
+<h2 id="考察算法">考察算法</h2>
+
+<p>竖式运算的格式，模拟。</p>
+
+<h2 id="算法一">算法一</h2>
+
+<h3 id="思路">思路：</h3>
+
+<p>模拟，直接输出，不判断计算出的两个数字的相对位数，输出不带格式。</p>
+
+<h3 id="时间复杂度分析">时间复杂度分析：</h3>
+
+<p>O(1)。</p>
+
+<h3 id="期望得分">期望得分：</h3>
+
+<p>25分。</p>
+
+<h3 id="参考代码">参考代码：</h3>
+
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main()
+{
+	int x,y;
+	scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+	if (y &lt;= 10)
+	{
+		int sum = x * y;
+		printf(&quot;%d\n* %d\n&quot;,x,y);
+		puts(&quot;----&quot;);
+		printf(&quot;%d\n&quot;,sum);
+	}
+	else
+	{
+		int sum1 = x * (y % 10);
+		int sum2 = x * (y / 10);
+		int sum = sum1 + sum2 * 10;
+		printf(&quot;%d\n* %d\n&quot;,x,y);
+		puts(&quot;----&quot;);
+		printf(&quot;%d\n%d\n&quot;,sum1,sum2);
+		puts(&quot;----&quot;);
+		printf(&quot;%d\n&quot;,sum);
+	}
+	return 0;
+}
+</code></pre>
+
+<h2 id="算法二">算法二</h2>
+
+<h3 id="思路-1">思路：</h3>
+
+<p>判断第一个数字乘第二个数字的十位的位数，从而对输出的第一个数字乘第二个数字的个位的结果控制位数。</p>
+
+<h3 id="时间复杂度分析-1">时间复杂度分析：</h3>
+
+<p>O(1)。</p>
+
+<h3 id="期望得分-1">期望得分：</h3>
+
+<p>100分。</p>
+
+<h3 id="参考代码-1">参考代码：</h3>
+
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int cal(int k)
+{
+	if (k == 0) return 1;
+	int cnt = 0;
+	while (k)
+	{
+		cnt++;
+		k /= 10;
+	}
+	return cnt;
+}
+
+int main()
+{
+	int x,y;
+	scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+	if (y &lt;= 10)
+	{
+		int sum = x * y;
+		printf(&quot;%d\n* %d\n&quot;,x,y);
+		puts(&quot;----&quot;);
+		printf(&quot;%d\n&quot;,sum);
+	}
+	else
+	{
+		int sum1 = x * (y % 10);
+		int sum2 = x * (y / 10);
+		int sum = sum1 + sum2 * 10;
+		printf(&quot;%d\n* %d\n&quot;,x,y);
+		puts(&quot;----&quot;);
+		int b2 = cal(sum2*10);
+		if (b2 == 2)
+		{
+			printf(&quot;%2d\n&quot;,sum1);
+		}
+		else if (b2 == 3)
+		{
+			printf(&quot;%3d\n&quot;,sum1);
+		}
+		else if (b2 == 4)
+		{
+			printf(&quot;%4d\n&quot;,sum1);
+		}
+		printf(&quot;%d\n&quot;,sum2);
+		puts(&quot;----&quot;);
+		printf(&quot;%d\n&quot;,sum);
+	}
+	return 0;
+}
+</code></pre>
+
+<h2 id="题目二-题目大意">题目二-题目大意</h2>
+
+<p>给出一个 $N * N$ 的棋盘，再给出一个格子的坐标，输出与这个格子同一行，同一列，在同一对角线上（正对角线和副对角线均要计算）的格子的坐标。</p>
+
+<h2 id="考察算法-1">考察算法</h2>
+
+<p>模拟。</p>
+
+<h2 id="算法一-1">算法一</h2>
+
+<h3 id="思路-2">思路：</h3>
+
+<p>模拟即可。</p>
+
+<h3 id="时间复杂度分析-2">时间复杂度分析：</h3>
+
+<p>O(N)。</p>
+
+<h3 id="期望得分-2">期望得分：</h3>
+
+<p>100分。</p>
+
+<h3 id="参考代码-2">参考代码：</h3>
+
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main()
+{
+	int n,x,y;
+	scanf(&quot;%d%d%d&quot;,&amp;n,&amp;x,&amp;y);
+	for (int i = 1;i &lt;= n;i++)
+	{
+		printf(&quot;(%d,%d)&quot;,x,i);
+	}
+	puts(&quot;&quot;);
+	for (int i = 1;i &lt;= n;i++)
+	{
+		printf(&quot;(%d,%d)&quot;,i,y);
+	}
+	puts(&quot;&quot;);
+	int tx = x,ty = y;
+	while (tx &gt; 1 &amp;&amp; ty &gt; 1)
+	{
+		tx--,ty--;
+	}
+	while (tx &lt;= n &amp;&amp; ty &lt;= n)
+	{
+		printf(&quot;(%d,%d)&quot;,tx,ty);
+		tx++,ty++;
+	}
+	puts(&quot;&quot;);
+	tx = x,ty = y;
+	while (tx &lt; n &amp;&amp; ty &gt; 1)
+	{
+		tx++,ty--;
+	}
+	while (tx &gt;= 1 &amp;&amp; ty &lt;= n)
+	{
+		printf(&quot;(%d,%d)&quot;,tx,ty);
+		tx--,ty++;
+	}
+	puts(&quot;&quot;);
+	return 0;
+}
+</code></pre>
+
+<h2 id="题目三-题目大意">题目三-题目大意</h2>
+
+<p>输出一个字符串$s$，并对其进行一次操作。</p>
+
+<p>操作有3种：</p>
+
+<p>D  a：表示删除s中出现的第一个a（如果存在）；</p>
+
+<p>I a1 a2：表示把a2插入到s中第一个a1之前，（如果a1存在）；</p>
+
+<p>R a1 a2：表示把s中每一个a1用a2替换（如果存在）。</p>
+
+<h2 id="考察算法-2">考察算法</h2>
+
+<p>模拟，暴力，字符串基本操作。</p>
+
+<h2 id="算法一-2">算法一</h2>
+
+<h3 id="思路-3">思路：</h3>
+
+<p>不进行实际的替换，将删除的字符忽略，将插入的直接输出，将替换的直接输出。</p>
+
+<h3 id="时间复杂度分析-3">时间复杂度分析：</h3>
+
+<p>$O(|s|)$，$|s|$代表字符串的长度。</p>
+
+<h3 id="期望得分-3">期望得分：</h3>
+
+<p>100分。</p>
+
+<h3 id="参考代码-3">参考代码：</h3>
+
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main()
+{
+	char s[50];
+	gets(s);
+	int sz = strlen(s);
+	char op;
+	scanf(&quot; %c&quot;,&amp;op);
+	if (op == 'D')
+	{
+		char ch;
+		scanf(&quot; %c&quot;,&amp;ch);
+		int pos = -1;
+		for (int i = 0;i &lt; sz;i++)
+		{
+			if (s[i] == ch)
+			{
+				pos = i;
+				break;
+			}
+		}
+		for (int i = 0;i &lt; pos;i++) putchar(s[i]);
+		for (int i = pos + 1;i &lt; sz;i++) putchar(s[i]);
+	}
+	else if (op == 'I')
+	{
+		char a1,a2;
+		scanf(&quot; %c %c&quot;,&amp;a1,&amp;a2);
+		int pos = -1;
+		for (int i = sz - 1;i &gt;= 0;i--)
+		{
+			if (s[i] == a1)
+			{
+				pos = i;
+				break;
+			}
+		}
+		for (int i = 0;i &lt; pos;i++) putchar(s[i]);
+		putchar(a2);
+		for (int i = pos;i &lt; sz;i++) putchar(s[i]);
+	}
+	else
+	{
+		char a1,a2;
+		scanf(&quot; %c %c&quot;,&amp;a1,&amp;a2);
+		for (int i = 0;i &lt; sz;i++)
+		{
+			if (s[i] == a1)
+			{
+				putchar(a2);
+			}
+			else
+			{
+				putchar(s[i]);
+			}
+		}
+	}
+	puts(&quot;&quot;);
+	return 0;
+}
+</code></pre>
+
+<h2 id="算法二-1">算法二</h2>
+
+<h3 id="思路-4">思路：</h3>
+
+<p>模拟，进行实际的替换后再输出。</p>
+
+<h3 id="时间复杂度分析-4">时间复杂度分析：</h3>
+
+<p>$O(|s|)$，$|s|$代表字符串的长度。</p>
+
+<h3 id="期望得分-4">期望得分：</h3>
+
+<p>100分。</p>
+
+<h3 id="参考代码-4">参考代码：</h3>
+
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main()
+{
+	char s[50];
+	gets(s);
+	int sz = strlen(s);
+	char op;
+	scanf(&quot; %c&quot;,&amp;op);
+	if (op == 'D')
+	{
+		char ch;
+		scanf(&quot; %c&quot;,&amp;ch);
+		int pos = -1;
+		for (int i = 0;i &lt; sz;i++)
+		{
+			if (s[i] == ch)
+			{
+				pos = i;
+				break;
+			}
+		}
+		for (int i = pos;i &lt; sz;i++)
+		{
+			s[i] = s[i+1];
+		}
+		s[sz-1] = 0;
+	}
+	else if (op == 'I')
+	{
+		char a1,a2;
+		scanf(&quot; %c %c&quot;,&amp;a1,&amp;a2);
+		int pos = -1;
+		for (int i = sz - 1;i &gt;= 0;i--)
+		{
+			if (s[i] == a1)
+			{
+				pos = i;
+				break;
+			}
+		}
+		if (pos != -1)
+		{
+			for (int i = sz - 1;i &gt;= pos;i--)
+			{
+				s[i+1] = s[i];
+			}
+			s[pos] = a2;
+		}
+		s[sz+1] = 0;
+	}
+	else
+	{
+		char a1,a2;
+		scanf(&quot; %c %c&quot;,&amp;a1,&amp;a2);
+		for (int i = 0;i &lt; sz;i++)
+		{
+			if (s[i] == a1)
+			{
+				s[i] = a2;
+			}
+		}
+	}
+	puts(s);
+	return 0;
+}
+</code></pre>
+
+<h2 id="题目四-题目大意">题目四-题目大意</h2>
+
+<p>有$2^n$个球队进行比赛，计划在$2^n - 1$天内完成，每个队伍每天只进行一场比赛，按照字典序输出每天的比赛情况。</p>
+
+<h2 id="考察算法-3">考察算法</h2>
+
+<p>模拟，按字典序输出。</p>
+
+<h2 id="算法一-3">算法一</h2>
+
+<h3 id="思路-5">思路：</h3>
+
+<p>因为n较小，直接模拟即可。</p>
+
+<h3 id="时间复杂度分析-5">时间复杂度分析：</h3>
+
+<p>$O(2^n * n^2)$。</p>
+
+<h3 id="期望得分-5">期望得分：</h3>
+
+<p>100分。</p>
+
+<h3 id="参考代码-5">参考代码：</h3>
+
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 100;
+
+bool vis[N][N];
+bool used[N];
+
+int main()
+{
+	int n;
+	scanf(&quot;%d&quot;,&amp;n);
+	int sum = (1 &lt;&lt; n);
+	int tmp = sum;
+	int cnt = 0;
+
+	while (--tmp)
+	{
+		printf(&quot;&lt;%d&gt;&quot;,++cnt);
+		memset(used,0,sizeof(used));
+		bool f = 0;
+		while (1)
+		{
+			bool update = 0;
+			for (int i = 1;i &lt;= sum;i++)
+			{
+				if (!used[i])
+				{
+					update = 1;
+					used[i] = 1;
+					for (int j = 1;j &lt;= sum;j++)
+					{
+						if (!used[j] &amp;&amp; !vis[i][j])
+						{
+							used[j] = 1;
+							vis[i][j] = vis[j][i] = 1;
+							if (f) printf(&quot; %d-%d&quot;,i,j);
+							else
+							{
+								f = 1;
+								printf(&quot;%d-%d&quot;,i,j);
+							}
+							break;
+						}
+					}
+				}
+			}
+			if (!update) break;
+		}
+		puts(&quot;&quot;);
+	}
+	return 0;
+}
+</code></pre>
+
+
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -257,8 +782,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -281,10 +804,8 @@
 
 
         
-            <a class="nav nav-prev" href="/" title="urlve"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/post/" title="Posts"> <i class="fas fa-chevron-left"></i></a>
         
-        
-            <a class="nav nav-next" href="/post/orz/" title="Orz" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -314,3 +835,4 @@
 
   </body>
 </html>
+
