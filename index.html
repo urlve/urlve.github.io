@@ -27,30 +27,11 @@
         <h3 data-open="last-posts">urlve - Most recent posts</h3>
         <ul>
             
-            <li><a href="https://urlve.github.io/post/gg/">Gg</a></li>
-            
-            <li><a href="https://urlve.github.io/post/test/">Test</a></li>
-            
-            <li><a href="https://urlve.github.io/post/first/">First</a></li>
-            
-            <li><a href="https://urlve.github.io/about/">About</a></li>
-            
         </ul>
     </div>
 
     
 
-    
-    <div id="categories" class="open">
-        <h3 data-open="categories">Categories</h3>
-        <ul class="categories">
-            
-            <li><a href="/categories/%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%E5%A4%A7%E6%B3%95%E5%A5%BD">容斥原理大法好</a></li>
-            
-            <li><a href="/categories/%E7%9E%8E%E5%87%A0%E6%8A%8A%E4%B9%B1%E5%86%99">瞎几把乱写</a></li>
-            
-        </ul>
-    </div>
     
 </nav>
 
@@ -59,45 +40,6 @@
 
 
 <div class="articles-list">
-    
-    <article>
-        <h3><a href="https://urlve.github.io/about/">About</a> - 2018-08-16 10:50:39</h3>
-        
-    </article>
-    
-    <article>
-        <h3><a href="https://urlve.github.io/post/first/">First</a> - 2018-08-16 10:51:21</h3>
-        1995 题目一-题目大意 给出一个算式，根据给出的数字求这个算式中的未知数字。
-考察算法 暴力枚举。
-算法一 思路： 暴力枚举除数和被除数，算出其它数字，再判断是否满足算式的条件。
-时间复杂度分析： $O(M * N)$，$M \leq 100,N \leq 10000$。
-期望得分： 100分。
-参考代码： #include &lt;stdio.h&gt; #include &lt;string.h&gt; #include &lt;algorithm&gt; using namespace std; int main() { for (int i = 10;i &lt;= 99;i++) { for (int j = 1000;j &lt;= 9999;j++) { int k = i * 8; if (k &gt;= 100) continue; int x = j / 100; int y = x - k; if (y &lt; 1 || y &gt; 9) continue; int m = y * 100 + j % 100; int n = i * 9; if (n &lt; 100) continue; if (m - n !
-    </article>
-    
-    <article>
-        <h3><a href="https://urlve.github.io/post/test/">Test</a> - 2018-08-16 11:53:23</h3>
-        sfafds sdfsdfsd sdfdsfsd sdfsf
-#include &lt;stdio.h&gt; int main() { return 0; }  
-    </article>
-    
-    <article>
-        <h3><a href="https://urlve.github.io/post/gg/">Gg</a> - 2018-08-17 11:11:44</h3>
-        1997
-题目一-题目大意
-给出一个n*m的棋盘，计算其中的正方形和长方形（不包含正方形）有多少个。
-考察算法
-数学。
-算法一
-思路：
-枚举长方形的边长，暴力计算，累加。
-时间复杂度分析：
-O(n*m)
-期望得分：
-100分。
-参考代码：
-#include &lt;stdio.h&gt; #include &lt;string.h&gt; #include &lt;algorithm&gt; using namespace std; int main() { int n,m; scanf(&quot;%d%d&quot;,&amp;n,&amp;m); int sq = 0,rec = 0; for (int i = 1;i &lt;= max(n,m);i++) { for (int j = 1;j &lt;= max(n,m);j++) { if (i == j) { int x = n - i + 1; int y = m - j + 1; if (x &lt;= 0 || y &lt;= 0) continue; sq += x * y; } else { int x = n - i + 1; int y = m - j + 1; if (x &lt;= 0 || y &lt;= 0) continue; rec += x * y; } } } printf(&quot;%d %d\n&quot;,sq,rec); return 0; }  算法二
-    </article>
     
 </div>
 
